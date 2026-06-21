@@ -1,0 +1,17 @@
+crewai==0.28.8
+langchain-community
+yfinance
+tavily-python==0.5.0
+apscheduler==3.10.4
+python-dotenv==1.0.0
+pandas==2.2.3
+requests==2.32.3
+
+langchain-openai
+langchain-anthropic
+
+fastapi
+uvicorn
+markdown
+alpaca-py
+litellm==1.60.0

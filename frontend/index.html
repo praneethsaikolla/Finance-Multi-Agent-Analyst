@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Multi-Agent Dashboard</title>
+    <!-- Modern Font: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fa-solid fa-chart-line gradient-text"></i> FinAgent</h2>
+            </div>
+            
+            <div class="new-analysis-box">
+                <p>Run New Analysis</p>
+                <form id="analyze-form">
+                    <input type="text" id="ticker-input" placeholder="e.g. AAPL, TSLA" required autocomplete="off">
+                    <button type="submit" id="analyze-btn">
+                        <span class="btn-text">Analyze</span>
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="history-section">
+                <h3><i class="fa-regular fa-clock"></i> History</h3>
+                <ul id="report-list" class="report-list">
+                    <!-- Reports will be populated here by JS -->
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="nav-title" id="current-ticker">Dashboard</div>
+                <div class="nav-status">
+                    <span class="status-indicator"></span> System Online
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Loading State -->
+                <div id="loading-state" class="state-container hidden">
+                    <div class="loader-wrapper">
+                        <div class="spinner"></div>
+                        <div class="pulse-ring"></div>
+                    </div>
+                    <h2 class="loading-text">Agents are analyzing <span id="loading-ticker" class="gradient-text"></span>...</h2>
+                    <p class="loading-subtext">Fetching 15-minute OHLCV data, technical indicators, and latest news sentiment.</p>
+                </div>
+
+                <!-- Empty State -->
+                <div id="empty-state" class="state-container">
+                    <div class="empty-icon">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h2>No Report Selected</h2>
+                    <p>Enter a ticker symbol in the sidebar to generate a new AI-powered financial report, or select one from your history.</p>
+                </div>
+
+                <!-- Report Viewer -->
+                <div id="report-viewer" class="report-viewer hidden">
+                    <!-- Markdown will be rendered here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script -->
+    <script src="/static/script.js"></script>
+</body>
+</html>
